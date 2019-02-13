@@ -1,7 +1,6 @@
 {
   "name": "NavChallenge",
   "description": "Exercise for interns to complete where they will build a responsive nav driven from json",
-  "version": "3.0",
   "authors": [
     "Felipe Vilá <felipe.vila@endava.com>"
   ],
