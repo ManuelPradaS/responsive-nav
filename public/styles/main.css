@@ -1,15 +1,16 @@
 /* Styles here! */
-header{
-    position: absolute;
+#navBar{
     height: 10%;
-    width: 70%;
-    left: 10%;
-    top: 5%;
-}
-
-.menu {
+    width: 100%;
     background-color: #ff3f10;
-    margin: 10px;
+
+}
+.menu {
+    display: inline-block ;
+    position: relative;
+    margin: 0;
+    width: 50%;
+
 }
 
 .menuItem{
@@ -34,14 +35,13 @@ header{
 
 .logo{
     float:left;
+    height: 100%;
 }
 .logo img {
-    color: red;
-    background-color: silver;
-    width: 50px;
-    padding: 0;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 50%;
 }
-
 
 .dropDown{
     position: absolute;
@@ -72,3 +72,6 @@ header{
 
 }
 
+.show {
+    display: block;
+}

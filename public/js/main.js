@@ -31,6 +31,7 @@ fetch('http://localhost:3000/api/nav.json')
         let currentLi =document.createElement("li");
         currentLi.setAttribute("class",classLi);
 
+
         let currentChild =document.createElement("a");
 
         currentChild.innerHTML=currentItem.label;
@@ -47,6 +48,7 @@ fetch('http://localhost:3000/api/nav.json')
 
       return listNavBar;
     }
+
 
 
 
