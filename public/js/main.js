@@ -6,14 +6,24 @@ fetch('http://localhost:3000/api/nav.json')
   .then(function(myJson) {
     console.log(myJson);
 
-    const navBar = document.getElementById("navBar")
+    const navBar = document.getElementById("navBar");
     navBar.appendChild(addItems(myJson,"menu","menuItem"));
 
+
+    let endavaLogo=document.createElement("div");
+    endavaLogo.setAttribute("class","logo");
+
+    let endavaLogoImage=document.createElement("img");
+    endavaLogoImage.setAttribute("src","/images/endava-logo.png");
+    endavaLogoImage.setAttribute("alt","Endava");
+    endavaLogo.appendChild(endavaLogoImage);
+
+    navBar.appendChild(endavaLogo);
 
 
     function addItems(data,classUl,classLi){
 
-      const listNavBar =document.createElement("ul")
+      const listNavBar =document.createElement("ul");
       listNavBar.setAttribute("class",classUl);
 
       data.items.forEach(currentItem=> {
@@ -33,7 +43,7 @@ fetch('http://localhost:3000/api/nav.json')
         }
 
 
-      })
+      });
 
       return listNavBar;
     }
