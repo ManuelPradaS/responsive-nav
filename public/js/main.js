@@ -43,10 +43,16 @@ fetch('http://localhost:3000/api/nav.json')
 
 
                 if (currentItem.items !== undefined && currentItem.items.length) {
-                    currentChild.appendChild(addChildDropDown(currentItem, "dropDownMenu"));
+                    currentChild.appendChild(addChildDropDown(currentItem, "dropDownMenu"))
+                    //Add currentChild to currentLi
+                    //Create a button, and add to the menu.
+                    const thisButton = document.createElement("button");
+                    thisButton.setAttribute("onclick", "dropDownMenu()");
+                    thisButton.setAttribute("class", "dropButton");
+                    currentLi.appendChild(thisButton);
                 }
 
-                //Add currentChild to currentLi
+
                 currentLi.appendChild(currentChild);
 
                 //Add currentLi to menu list
@@ -64,13 +70,9 @@ fetch('http://localhost:3000/api/nav.json')
             const dropDown = document.createElement("div");
             dropDown.setAttribute("class", divName);
 
-            //Create a button, and add to the menu.
-            const thisButton = document.createElement("button");
-            thisButton.setAttribute("onclick", "dropDownMenu()");
-            thisButton.setAttribute("class", "dropButton");
             // thisButton.setAttribute("tag", "Dropdown");
             // thisButton.innerHTML = data.label;
-            dropDown.appendChild(thisButton);
+
 
             //Create a div to contain the items
             const content = document.createElement("div");
@@ -81,6 +83,7 @@ fetch('http://localhost:3000/api/nav.json')
 
                 let currentChild = document.createElement("a");
                 currentChild.setAttribute("href", currentItem.url);
+                currentChild.innerHTML = currentItem.label;
                 content.appendChild(currentChild);
 
 
