@@ -4,21 +4,28 @@ body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     z-index: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    background-color: darkgray;
 }
 
 .mainContainer{
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
+    align-content: center;
+    align-items: center;
     position:absolute;
     top: 0px;
     bottom: 0px;
     right: 0px;
     left: 0px;
     z-index: 0;
-    margin: 0px; 
+    margin: auto; 
     padding: 0px;
     border: 0;
+    width: 1280px;
 }
 
 .navBarCont{
@@ -36,21 +43,52 @@ body {
 }
 
 .endavaImageCont{
-    background-image: url("./images/background-image.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("../images/background-image.jpg");
+    background-repeat: no-repeat;
+    background-position:center top;
     margin: 0px; 
     padding: 0px;
     background-color: gray;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     height: 70%;
     position: relative;
     width: 100%;
     z-index: 1;
 }
 
+.centredTextCont{
+    width: 47%;
+    padding: 0px;
+    margin: 0px; 
+    height: min-content;
+}
+
+.centredText{
+    color: white;
+    font-size: 94px;
+    font-family: "Oswald"; 
+    text-align: center;
+    font-style: italic;
+    font-weight: 200;
+    line-height: 6rem;
+}
+
+.orangeLittleBox{
+    background-color: #ff3f10;
+    width: 17%;
+    height: 2%;
+    position: relative;
+    top: -10%;
+    margin: auto;
+    
+}
+
 .finalTextCont{
+    background-color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -69,7 +107,7 @@ body {
     width: 968px;
     height: 30%;
     position: relative;
-    top: 20%;
+    top: 10%;
     bottom: 20%;
     margin: 0px; 
     padding: 0px; 
@@ -81,8 +119,9 @@ body {
     width: 100%; 
     margin: 0px; 
     padding: 0px;
-    border: 0; 
-    
+    border: 0;
+    font-family: "Arial"; 
+    font-size: 18px; 
 }
 
 
