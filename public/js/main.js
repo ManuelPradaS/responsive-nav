@@ -1,57 +1,110 @@
 // JS Here!
 fetch('http://localhost:3000/api/nav.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(myJson);
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (myJson) {
+        console.log(myJson);
+        //Call nav bar
+        const navBar = document.getElementById("navBar");
 
-    const navBar = document.getElementById("navBar");
-    navBar.appendChild(addItems(myJson,"menu","menuItem"));
+        //Create a div to contain the logo
+        let endavaLogo = document.createElement("div");
+        endavaLogo.setAttribute("class", "logo");
 
+        // Create img an append to  the container
+        let endavaLogoImage = document.createElement("img");
+        endavaLogoImage.setAttribute("src", "/images/endava-logo.png");
+        endavaLogoImage.setAttribute("alt", "Endava");
+        endavaLogo.appendChild(endavaLogoImage);
+        //Add logo to navBar
+        navBar.appendChild(endavaLogo);
 
-    let endavaLogo=document.createElement("div");
-    endavaLogo.setAttribute("class","logo");
-
-    let endavaLogoImage=document.createElement("img");
-    endavaLogoImage.setAttribute("src","/images/endava-logo.png");
-    endavaLogoImage.setAttribute("alt","Endava");
-    endavaLogo.appendChild(endavaLogoImage);
-
-    navBar.appendChild(endavaLogo);
-
-
-    function addItems(data,classUl,classLi){
-
-      const listNavBar =document.createElement("ul");
-      listNavBar.setAttribute("class",classUl);
-
-      data.items.forEach(currentItem=> {
-
-        let currentLi =document.createElement("li");
-        currentLi.setAttribute("class",classLi);
+        //Append the menu to navBar
+        navBar.appendChild(addItems(myJson, "menu", "menuItem"));
 
 
-        let currentChild =document.createElement("a");
+        function addItems(data, classUl, classLi) {
 
-        currentChild.innerHTML=currentItem.label;
-        currentChild.setAttribute("href",currentItem.url);
-        currentLi.appendChild(currentChild);
-        listNavBar.appendChild(currentLi);
+            const menuList = document.createElement("ul");
+            menuList.setAttribute("class", classUl);
 
-        if(currentItem.items!== undefined&&currentItem.items.length){
-          currentChild.appendChild(addItems(currentItem,"dropDown","dropDownItem"));
+            data.items.forEach(currentItem => {
+
+                //Create current menuitem
+                let currentLi = document.createElement("li");
+                currentLi.setAttribute("class", classLi);
+                // currentLi.setAttribute("label", currentItem.label)
+
+                //Crate a link
+                let currentChild = document.createElement("a");
+                currentChild.innerHTML = currentItem.label;
+                currentChild.setAttribute("href", currentItem.url);
+
+
+                if (currentItem.items !== undefined && currentItem.items.length) {
+                    currentChild.appendChild(addChildDropDown(currentItem, "dropDownMenu"));
+                }
+
+                //Add currentChild to currentLi
+                currentLi.appendChild(currentChild);
+
+                //Add currentLi to menu list
+                menuList.appendChild(currentLi);
+
+
+            });
+
+            return menuList;
+        }
+
+        function addChildDropDown(data, divName) {
+
+            //Div for contain the dropDownMenu
+            const dropDown = document.createElement("div");
+            dropDown.setAttribute("class", divName);
+
+            //Create a button, and add to the menu.
+            const thisButton = document.createElement("button");
+            thisButton.setAttribute("onclick", "dropDownMenu()");
+            thisButton.setAttribute("class", "dropButton");
+            // thisButton.setAttribute("tag", "Dropdown");
+            // thisButton.innerHTML = data.label;
+            dropDown.appendChild(thisButton);
+
+            //Create a div to contain the items
+            const content = document.createElement("div");
+            content.setAttribute("class", "dropdown-content");
+            content.setAttribute("id", "myDropdown");
+
+            data.items.forEach(currentItem => {
+
+                let currentChild = document.createElement("a");
+                currentChild.setAttribute("href", currentItem.url);
+                content.appendChild(currentChild);
+
+
+            })
+            dropDown.appendChild(content);
+
+            return dropDown;
         }
 
 
-      });
-
-      return listNavBar;
-    }
 
 
 
 
-  });
 
+
+
+
+
+
+
+
+
+
+
+    });
 
