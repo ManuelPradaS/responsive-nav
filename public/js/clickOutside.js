@@ -1,5 +1,5 @@
 // window.onclick = function(event) {
-//     if (!event.target.matches('.dropButton')) {
+//     if (!event.target.matches('#dropButton')) {
 //         var dropdowns = document.getElementsByClassName("dropdown-content");
 //         var i;
 //         for (i = 0; i < dropdowns.length; i++) {

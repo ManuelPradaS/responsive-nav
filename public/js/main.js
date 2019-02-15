@@ -40,6 +40,7 @@ fetch('http://localhost:3000/api/nav.json')
                     //Create a button, and add to the menu.
                     // const thisButton = document.createElement("button");
                     currentLi.setAttribute("onclick", "dropDownMenu()");
+                    currentLi.setAttribute("id", "dropButton");
                     // thisButton.setAttribute("class", "dropButton");
                     // currentLi.appendChild(thisButton);
                 }
