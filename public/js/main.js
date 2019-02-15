@@ -12,14 +12,6 @@ fetch('http://localhost:3000/api/nav.json')
         let endavaLogo = document.createElement("div");
         endavaLogo.setAttribute("class", "logo");
 
-        // Create img an append to  the container
-        let endavaLogoImage = document.createElement("img");
-        endavaLogoImage.setAttribute("src", "/images/endava-logo.png");
-        endavaLogoImage.setAttribute("alt", "Endava");
-        endavaLogo.appendChild(endavaLogoImage);
-        //Add logo to navBar
-        navBar.appendChild(endavaLogo);
-
         //Append the menu to navBar
         navBar.appendChild(addItems(myJson, "menu", "menuItem"));
 
@@ -46,10 +38,10 @@ fetch('http://localhost:3000/api/nav.json')
                     currentChild.appendChild(addChildDropDown(currentItem, "dropDownMenu"))
                     //Add currentChild to currentLi
                     //Create a button, and add to the menu.
-                    const thisButton = document.createElement("button");
-                    thisButton.setAttribute("onclick", "dropDownMenu()");
-                    thisButton.setAttribute("class", "dropButton");
-                    currentLi.appendChild(thisButton);
+                    // const thisButton = document.createElement("button");
+                    currentLi.setAttribute("onclick", "dropDownMenu()");
+                    // thisButton.setAttribute("class", "dropButton");
+                    // currentLi.appendChild(thisButton);
                 }
 
 
