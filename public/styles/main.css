@@ -148,13 +148,6 @@ body {
     width: auto; 
 }
 
-.secondDivision{
-    width: 73%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
 .thirdDivision{
     width: 7%;
     display: flex;
@@ -174,6 +167,27 @@ body {
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.secondDivision{
+    width: 73%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    z-index: 2;
+}
+
+
+
+.secondDivision ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+   
 }
 
 
