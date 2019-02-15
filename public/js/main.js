@@ -10,28 +10,17 @@ fetch('http://localhost:3000/api/nav.json')
     navBar.appendChild(addItems(myJson,"menu","menuItem"));
 
 
-    let endavaLogo=document.createElement("div");
-    endavaLogo.setAttribute("class","logo");
-
-    let endavaLogoImage=document.createElement("img");
-    endavaLogoImage.setAttribute("src","/images/endava-logo.png");
-    endavaLogoImage.setAttribute("alt","Endava");
-    endavaLogo.appendChild(endavaLogoImage);
-
-    navBar.appendChild(endavaLogo);
-
-
     function addItems(data,classUl,classLi){
 
-      const listNavBar =document.createElement("ul");
+      const listNavBar = document.createElement("ul");
       listNavBar.setAttribute("class",classUl);
 
-      data.items.forEach(currentItem=> {
+      data.items.forEach(currentItem => {
 
-        let currentLi =document.createElement("li");
+        let currentLi = document.createElement("li");
         currentLi.setAttribute("class",classLi);
 
-        let currentChild =document.createElement("a");
+        let currentChild = document.createElement("a");
 
         currentChild.innerHTML=currentItem.label;
         currentChild.setAttribute("href",currentItem.url);
